@@ -3,9 +3,8 @@ import Header from "../../components/Header"
 import VerticalMenu from "../../components/VerticalMenu"
 import MainData from "../../components/MainData"
 import "./home.scss"
-import { useFetch } from "../../utils/hook"
 
-function Home(props) {
+function Home() {
   return (
     <>
       <Header />

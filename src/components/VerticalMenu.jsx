@@ -16,7 +16,6 @@ const VerticalWrapper = styled.div`
   position: relative;
   align-items: center;
 `
-const ImgWrapper = styled.div``
 
 const ImgLogo = styled.img`
   margin: 10px 0;
