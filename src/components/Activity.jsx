@@ -100,8 +100,6 @@ function Activity() {
     data
   ).getActivityFormatted()
 
-  // console.log(dataActivityFormatted)
-
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       return (

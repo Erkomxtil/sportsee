@@ -16,7 +16,7 @@ const HeaderWrapper = styled.header`
   }
 `
 
-function Header(props) {
+function Header() {
   return (
     <HeaderWrapper>
       <img src={logo} alt="Logo SportSee" />

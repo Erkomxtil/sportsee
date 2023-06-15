@@ -1,5 +1,4 @@
 import { styled } from "styled-components"
-import colors from "../utils/style/colors"
 
 const MacronutrientsWrapper = styled.div`
   display: flex;
@@ -22,6 +21,23 @@ const MacronutrientsWrapper = styled.div`
       font-size: 14px;
       color: #74798c;
       font-weight: 500;
+    }
+  }
+
+  @media (max-width: 1440px) {
+    width: 20%;
+    align-items: center;
+    padding-top: 0;
+
+    img {
+      height: 30px;
+      width: 30px;
+    }
+    p {
+      font-size: 16px;
+      span {
+        font-size: 10px;
+      }
     }
   }
 `

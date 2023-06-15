@@ -41,7 +41,7 @@ const TextCopy = styled.p`
   }
 `
 
-function VerticalMenu(props) {
+function VerticalMenu() {
   return (
     <VerticalWrapper>
       <ImgLogo src={yoga} alt="Logo yoga" />

@@ -1,7 +1,6 @@
 import { styled } from "styled-components"
 import ActivityDataFormat, { FetchSessions } from "../assets/api/services"
 import { LineChart, CartesianGrid, XAxis, YAxis, Tooltip, Line } from "recharts"
-import colors from "../utils/style/colors"
 import { Loader } from "../utils/style/Atoms"
 import { useEffect } from "react"
 
@@ -15,6 +14,8 @@ const LoaderWrapper = styled.div`
 const SessionsWrapper = styled.div`
   position: relative;
   margin-top: 28px;
+  max-width: 258px;
+  width: 100%;
 
   h2 {
     position: absolute;
@@ -88,6 +89,12 @@ function Sessions() {
       LabelD?.setAttribute("x", 247)
     }
   }, [isloading])
+
+  if (error) {
+    return (
+      <div>Il y a eu un problème lors de la connexion avec le serveur !</div>
+    )
+  }
 
   return (
     <>
