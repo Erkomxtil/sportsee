@@ -4,10 +4,29 @@ import colors from "../utils/style/colors"
 import Activity from "./Activity"
 import Hello from "./Hello"
 import Sessions from "./Sessions"
+import Performance from "./Performance"
+import Score from "./Score"
+import UserInfos from "./UserInfos"
+import fire from "../assets/images/fire.png"
+import ActivityDataFormat, { FetchMainData } from "../assets/api/services"
+
+const Container = styled.div`
+  display: flex;
+`
+
+const MainWrapper = styled.div``
 
 const MainDataWrapper = styled.div`
   padding: 68px 20px 88px 7.5%;
   width: calc(100% - 117px);
+`
+const SessionsPerformanceScoreWrapper = styled.div`
+  display: flex;
+`
+const AsideStyled = styled.aside`
+  max-width: 258px;
+  width: 100%;
+  padding-left: 31px;
 `
 
 function MainData() {
@@ -65,13 +84,37 @@ function MainData() {
   // if (error) {
   //   return <Error>Il y a eu un problème lors du chargement des données</Error>
   // }
+  const { isloading, userMainData, error } = FetchMainData(18, true)
+  console.log(userMainData)
+  const userMainDataFormatted = new ActivityDataFormat(
+    userMainData
+  ).getMainDataFormatted()
+  console.log(userMainDataFormatted)
 
   return (
     <MainDataWrapper>
       <>
         <Hello />
-        <Activity />
-        <Sessions />
+        <Container>
+          <MainWrapper>
+            <Activity />
+            <SessionsPerformanceScoreWrapper>
+              <Sessions />
+              <Performance />
+              <Score />
+            </SessionsPerformanceScoreWrapper>
+          </MainWrapper>
+          <AsideStyled>
+            {userMainDataFormatted &&
+              userMainDataFormatted?.map((data) => (
+                <UserInfos
+                  img={data.img}
+                  info={data.info}
+                  macronutrients={data.macronutrients}
+                />
+              ))}
+          </AsideStyled>
+        </Container>
       </>
     </MainDataWrapper>
   )

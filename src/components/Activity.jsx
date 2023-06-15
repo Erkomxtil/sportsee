@@ -20,20 +20,21 @@ const ActivityWrapper = styled.div`
   position: relative;
   background: #fbfbfb;
   padding: 0 0 20px 40px;
-  margin-top: 113px;
+  border-radius: 6px;
 
   .recharts-legend-wrapper {
-    top: -45px !important;
+    top: 0px !important;
     background: #fbfbfb;
     padding: 23px 40px 30px 0;
     width: calc(100% + 40px) !important;
     margin-left: -40px;
+    border-radius: 6px;
   }
 `
 
 const ActivityTitle = styled.h2`
   position: absolute;
-  top: -23px;
+  top: 22px;
   left: 40px;
   font-size: 15px;
   z-index: 100;
@@ -128,7 +129,9 @@ function Activity() {
   }
 
   if (error) {
-    return <div>Il y a eu un problème lors de la recherche !</div>
+    return (
+      <div>Il y a eu un problème lors de la connexion avec le serveur !</div>
+    )
   }
 
   return (

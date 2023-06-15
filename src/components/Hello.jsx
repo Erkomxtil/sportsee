@@ -23,7 +23,7 @@ const LoaderWrapper = styled.div`
 `
 
 function Hello() {
-  const { isloading, userMainData, error } = FetchMainData(18, false)
+  const { isloading, userMainData, error } = FetchMainData(12, false)
   const mainUserDataFormatted = new ActivityDataFormat(
     userMainData
   ).getUserMainDataFormatted()

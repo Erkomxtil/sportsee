@@ -2,10 +2,19 @@ import { styled } from "styled-components"
 import ActivityDataFormat, { FetchSessions } from "../assets/api/services"
 import { LineChart, CartesianGrid, XAxis, YAxis, Tooltip, Line } from "recharts"
 import colors from "../utils/style/colors"
+import { Loader } from "../utils/style/Atoms"
+import { useEffect } from "react"
+
+const LoaderWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+`
 
 const SessionsWrapper = styled.div`
   position: relative;
-  margin-top: 30px;
+  margin-top: 28px;
 
   h2 {
     position: absolute;
@@ -54,7 +63,6 @@ function Sessions() {
   const sessionsdataFormatted = new ActivityDataFormat(
     sessionsData
   ).getSessionsFormatted()
-  console.log(sessionsdataFormatted)
 
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
@@ -64,77 +72,86 @@ function Sessions() {
         </SessionTooltip>
       )
     }
-
     return null
   }
 
-  /* Ajustement des lettres L et D pour les sessions */
-  if (!isloading) {
-    const LabelL = document.querySelector(
-      ".sessionsWrapper .recharts-cartesian-axis-tick:first-child text tspan"
-    )
-    const LabelD = document.querySelector(
-      ".sessionsWrapper .recharts-cartesian-axis-tick:last-child text tspan"
-    )
-    LabelD?.setAttribute("x", 247)
-    console.log(LabelL)
-  }
+  useEffect(() => {
+    /* Ajustement des lettres L et D pour les sessions */
+    if (!isloading) {
+      const LabelL = document.querySelector(
+        ".sessionsWrapper .recharts-cartesian-axis-tick:first-child text tspan"
+      )
+      const LabelD = document.querySelector(
+        ".sessionsWrapper .recharts-cartesian-axis-tick:last-child text tspan"
+      )
+      if (LabelD !== null && LabelL !== null) LabelL?.setAttribute("x", 12)
+      LabelD?.setAttribute("x", 247)
+    }
+  }, [isloading])
 
   return (
-    <SessionsWrapper className="sessionsWrapper">
-      <h2>
-        Durée moyenne des
-        <br /> sessions
-      </h2>
-      <LineChartStyled
-        width={258}
-        height={250}
-        data={sessionsdataFormatted}
-        margin={{
-          top: 0,
-          right: 0,
-          left: 0,
-          bottom: 0,
-        }}
-        outerRadius="75%"
-      >
-        <CartesianGrid
-          strokeDasharray="3"
-          vertical={false}
-          horizontal={false}
-          fill="#FF0000"
-        />
-        <XAxis
-          interval="preserveStartEnd"
-          dataKey="day"
-          axisLine={false}
-          tickLine={false}
-          mirror={true}
-        />
-        <YAxis
-          axisLine={false}
-          tickLine={false}
-          hide
-          padding={{ top: 100, bottom: 50 }}
-        />
-        <Tooltip
-          content={<CustomTooltip />}
-          cursor={{ stroke: "rgba(0, 0, 0, 0.1)", strokeWidth: 79 }}
-        />
-        <Line
-          type="monotone"
-          dataKey="sessionLength"
-          stroke="#ffffff"
-          strokeWidth={2}
-          dot={false}
-          activeDot={{
-            stroke: "rgba(255, 255, 255, 0.198345)",
-            strokeWidth: "10px",
-            r: 5,
-          }}
-        />
-      </LineChartStyled>
-    </SessionsWrapper>
+    <>
+      {isloading ? (
+        <LoaderWrapper>
+          <Loader />
+        </LoaderWrapper>
+      ) : (
+        <SessionsWrapper className="sessionsWrapper">
+          <h2>
+            Durée moyenne des
+            <br /> sessions
+          </h2>
+          <LineChartStyled
+            width={258}
+            height={263}
+            data={sessionsdataFormatted}
+            margin={{
+              top: 0,
+              right: 0,
+              left: 0,
+              bottom: 0,
+            }}
+            outerRadius="75%"
+          >
+            <CartesianGrid
+              strokeDasharray="3"
+              vertical={false}
+              horizontal={false}
+              fill="#FF0000"
+            />
+            <XAxis
+              interval="preserveStartEnd"
+              dataKey="day"
+              axisLine={false}
+              tickLine={false}
+              mirror={true}
+            />
+            <YAxis
+              axisLine={false}
+              tickLine={false}
+              hide
+              padding={{ top: 100, bottom: 50 }}
+            />
+            <Tooltip
+              content={<CustomTooltip />}
+              cursor={{ stroke: "rgba(0, 0, 0, 0.1)", strokeWidth: 79 }}
+            />
+            <Line
+              type="monotone"
+              dataKey="sessionLength"
+              stroke="#ffffff"
+              strokeWidth={2}
+              dot={false}
+              activeDot={{
+                stroke: "rgba(255, 255, 255, 0.198345)",
+                strokeWidth: "10px",
+                r: 5,
+              }}
+            />
+          </LineChartStyled>
+        </SessionsWrapper>
+      )}
+    </>
   )
 }
 
