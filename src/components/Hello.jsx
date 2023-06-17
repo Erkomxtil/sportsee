@@ -2,6 +2,8 @@ import ActivityDataFormat, { FetchMainData } from "../assets/api/services"
 import colors from "../utils/style/colors"
 import styled from "styled-components"
 import { Loader } from "../utils/style/Atoms"
+import { useContext } from "react"
+import { UserContext } from "../utils/context"
 
 const HelloText = styled.div`
   font-size: 48px;
@@ -23,7 +25,8 @@ const LoaderWrapper = styled.div`
 `
 
 function Hello() {
-  const { isloading, userMainData, error } = FetchMainData(12, false)
+  const { userId, dataMocked } = useContext(UserContext)
+  const { isloading, userMainData, error } = FetchMainData(userId, dataMocked)
   const mainUserDataFormatted = new ActivityDataFormat(
     userMainData
   ).getUserMainDataFormatted()

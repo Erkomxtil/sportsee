@@ -7,6 +7,8 @@ import Performance from "./Performance"
 import Score from "./Score"
 import UserInfos from "./UserInfos"
 import ActivityDataFormat, { FetchMainData } from "../assets/api/services"
+import { useContext } from "react"
+import { UserContext } from "../utils/context"
 
 const Container = styled.div`
   display: flex;
@@ -47,7 +49,8 @@ const LoaderWrapper = styled.div`
 `
 
 function MainData() {
-  const { isloading, userMainData, error } = FetchMainData(18, true)
+  const { userId, dataMocked } = useContext(UserContext)
+  const { isloading, userMainData, error } = FetchMainData(userId, dataMocked)
   const userMainDataFormatted = new ActivityDataFormat(
     userMainData
   ).getMainDataFormatted()
@@ -78,8 +81,9 @@ function MainData() {
           ) : (
             <AsideStyled>
               {userMainDataFormatted &&
-                userMainDataFormatted?.map((data) => (
+                userMainDataFormatted?.map((data, index) => (
                   <UserInfos
+                    key={`user-${index}`}
                     img={data.img}
                     info={data.info}
                     macronutrients={data.macronutrients}

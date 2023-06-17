@@ -279,7 +279,6 @@ export default class ActivityDataFormat {
 
   getMainDataFormatted() {
     const mainDataFormatted = this.data?.keyData
-    console.log(mainDataFormatted)
 
     return [
       {
@@ -305,23 +304,3 @@ export default class ActivityDataFormat {
     ]
   }
 }
-
-// function AllDatas(pageUrl) {
-//   switch (pageUrl) {
-//     case "activity":
-//       pageUrl = "/activity"
-//       break
-//     case "average":
-//       pageUrl = "/average-sessions"
-//       break
-//     case "performance":
-//       pageUrl = "/performance"
-//       break
-//     default:
-//       pageUrl = ""
-//   }
-
-//   const { data, isloading, error } = useFetch(`${path}${pageUrl}`)
-
-//   return { data, isloading, error }
-// }

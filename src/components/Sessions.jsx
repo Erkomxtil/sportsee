@@ -2,7 +2,8 @@ import { styled } from "styled-components"
 import ActivityDataFormat, { FetchSessions } from "../assets/api/services"
 import { LineChart, CartesianGrid, XAxis, YAxis, Tooltip, Line } from "recharts"
 import { Loader } from "../utils/style/Atoms"
-import { useEffect } from "react"
+import { useContext, useEffect } from "react"
+import { UserContext } from "../utils/context"
 
 const LoaderWrapper = styled.div`
   width: 100%;
@@ -59,7 +60,8 @@ const SessionTooltip = styled.div`
 `
 
 function Sessions() {
-  const { isloading, sessionsData, error } = FetchSessions(18, false)
+  const { userId, dataMocked } = useContext(UserContext)
+  const { isloading, sessionsData, error } = FetchSessions(userId, dataMocked)
 
   const sessionsdataFormatted = new ActivityDataFormat(
     sessionsData

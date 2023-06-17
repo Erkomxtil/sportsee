@@ -3,6 +3,8 @@ import ActivityDataFormat, { FetchPerformance } from "../assets/api/services"
 import colors from "../utils/style/colors"
 import { Loader } from "../utils/style/Atoms"
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis } from "recharts"
+import { useContext } from "react"
+import { UserContext } from "../utils/context"
 
 const PerformanceWrapper = styled.div`
   margin-top: 28px;
@@ -22,7 +24,11 @@ const LoaderWrapper = styled.div`
 `
 
 function Performance() {
-  const { isloading, performanceData, error } = FetchPerformance(18, false)
+  const { userId, dataMocked } = useContext(UserContext)
+  const { isloading, performanceData, error } = FetchPerformance(
+    userId,
+    dataMocked
+  )
 
   const performanceDataFormatted = new ActivityDataFormat(
     performanceData

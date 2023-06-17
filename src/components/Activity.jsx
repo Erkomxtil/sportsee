@@ -14,6 +14,10 @@ import {
   ResponsiveContainer,
 } from "recharts"
 
+import { UseContext } from "../utils/context"
+import { UserContext } from "../utils/context"
+import { useContext } from "react"
+
 const ActivityWrapper = styled.div`
   max-width: 835px;
   width: 100%;
@@ -94,7 +98,9 @@ const LoaderWrapper = styled.div`
 `
 
 function Activity() {
-  const { isloading, data, error } = FetchActivity(18, false)
+  const { userId, dataMocked } = useContext(UserContext)
+
+  const { isloading, data, error } = FetchActivity(userId, dataMocked)
 
   const dataActivityFormatted = new ActivityDataFormat(
     data

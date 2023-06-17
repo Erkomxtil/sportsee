@@ -3,6 +3,8 @@ import { styled } from "styled-components"
 import ActivityDataFormat, { FetchMainData } from "../assets/api/services"
 import { Loader } from "../utils/style/Atoms"
 import colors from "../utils/style/colors"
+import { useContext } from "react"
+import { UserContext } from "../utils/context"
 
 const ScoreWrapper = styled.div`
   height: 263px;
@@ -48,7 +50,8 @@ const LoaderWrapper = styled.div`
 `
 
 function Score() {
-  const { isloading, userMainData, error } = FetchMainData(18, false)
+  const { userId, dataMocked } = useContext(UserContext)
+  const { isloading, userMainData, error } = FetchMainData(userId, dataMocked)
   const scoreFormatted = new ActivityDataFormat(
     userMainData
   ).getScoreFormatted()
