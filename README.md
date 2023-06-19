@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# SportSee
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Projet 12 - Développez un tableau de bord d'analytics avec React 
 
-## Available Scripts
+## Projet (**sans Docker**) côté Back
 
-In the project directory, you can run:
+### Prérequis
 
-### `npm start`
+- [NodeJS (**version 12.18**)](https://nodejs.org/en/)
+- [Yarn](https://yarnpkg.com/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Lancement du projet
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- faire une copie du projet
+- Clonez le projet sur votre editeur de code.
+- La commande 'yarn' vous permet d'installer les dépendances.
+- 'yarn dev' vous permet de lancer l'API.
 
-### `npm test`
+## Urls
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Possible urls
 
-### `npm run build`
+Vous aurez la possibilité d'utiliser ces 4 urls : 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- `http://localhost:3000/user/${userId}` - récupère les informations d'un utilisateur. Ce premier url comprend l'identifiant de l'utilisateur, les informations de l'utilisateur (prénom, nom et âge), le score du jour en cours (todayScore) et les données clés (calories, macronutriments, etc.).
+- `http://localhost:3000/user/${userId}/activity` - récupère l'activité d'un utilisateur jour après jour avec des kilogrammes et des calories.
+- `http://localhost:3000/user/${userId}/average-sessions` - récupère les sessions moyennes d'un utilisateur par jour. La semaine commence le lundi.
+- `http://localhost:3000/user/${userId}/performance` - récupère les performances d'un utilisateur (énergie, endurance, etc.).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Attention, pour le moment seuls deux utilisateurs ont été moqués. Ils ont respectivement les ID utilisateur 12 et 18.**
 
-### `npm run eject`
+## Projet côté front
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- faire une copie du projet
+- Clonez le projet sur votre editeur de code.
+- La commande 'npm install' vous permet d'installer les dépendances.
+- 'npm start' vous permet de lancer le projet.
