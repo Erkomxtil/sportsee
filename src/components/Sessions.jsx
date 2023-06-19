@@ -1,9 +1,10 @@
 import { styled } from "styled-components"
-import ActivityDataFormat, { FetchSessions } from "../assets/api/services"
+import { FetchSessions } from "../assets/api/services"
 import { LineChart, CartesianGrid, XAxis, YAxis, Tooltip, Line } from "recharts"
 import { Loader } from "../utils/style/Atoms"
 import { useContext, useEffect } from "react"
 import { UserContext } from "../utils/context"
+import ActivityDataFormat from "../assets/api/modelisation"
 
 const LoaderWrapper = styled.div`
   width: 100%;

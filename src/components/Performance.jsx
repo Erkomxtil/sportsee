@@ -1,10 +1,11 @@
 import { styled } from "styled-components"
-import ActivityDataFormat, { FetchPerformance } from "../assets/api/services"
+import { FetchPerformance } from "../assets/api/services"
 import colors from "../utils/style/colors"
 import { Loader } from "../utils/style/Atoms"
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis } from "recharts"
 import { useContext } from "react"
 import { UserContext } from "../utils/context"
+import ActivityDataFormat from "../assets/api/modelisation"
 
 const PerformanceWrapper = styled.div`
   margin-top: 28px;

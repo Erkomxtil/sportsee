@@ -1,9 +1,10 @@
-import ActivityDataFormat, { FetchMainData } from "../assets/api/services"
+import { FetchMainData } from "../assets/api/services"
 import colors from "../utils/style/colors"
 import styled from "styled-components"
 import { Loader } from "../utils/style/Atoms"
 import { useContext } from "react"
 import { UserContext } from "../utils/context"
+import ActivityDataFormat from "../assets/api/modelisation"
 
 const HelloText = styled.div`
   font-size: 48px;

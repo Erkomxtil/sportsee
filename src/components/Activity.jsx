@@ -1,5 +1,5 @@
 import { FetchActivity } from "../assets/api/services"
-import ActivityDataFormat from "../assets/api/services"
+import ActivityDataFormat from "../assets/api/modelisation"
 import styled from "styled-components"
 import colors from "../utils/style/colors"
 import { Loader } from "../utils/style/Atoms"
@@ -14,7 +14,6 @@ import {
   ResponsiveContainer,
 } from "recharts"
 
-import { UseContext } from "../utils/context"
 import { UserContext } from "../utils/context"
 import { useContext } from "react"
 

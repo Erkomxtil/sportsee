@@ -1,10 +1,11 @@
 import { RadialBarChart, RadialBar, ResponsiveContainer } from "recharts"
 import { styled } from "styled-components"
-import ActivityDataFormat, { FetchMainData } from "../assets/api/services"
+import { FetchMainData } from "../assets/api/services"
 import { Loader } from "../utils/style/Atoms"
 import colors from "../utils/style/colors"
 import { useContext } from "react"
 import { UserContext } from "../utils/context"
+import ActivityDataFormat from "../assets/api/modelisation"
 
 const ScoreWrapper = styled.div`
   height: 263px;
