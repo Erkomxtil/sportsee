@@ -36,3 +36,7 @@ Vous aurez la possibilité d'utiliser ces 4 urls :
 - Clonez le projet sur votre editeur de code.
 - La commande 'npm install' vous permet d'installer les dépendances.
 - 'npm start' vous permet de lancer le projet.
+
+## Auteur :
+
+Stéphane CHAFFRE
